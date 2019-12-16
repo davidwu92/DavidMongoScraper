@@ -1,2 +1,2 @@
-# DavidMongoScraper
-David's attempt at the mongo scraper assignment
+# mongoScraper
+For scraping New York Times articles.
