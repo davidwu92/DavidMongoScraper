@@ -9,4 +9,17 @@
 <body>
   <h1>DAVID'S MONGO SCRAPER</h1>
 </body>
+
+<script>
+//~~~~~~~~~CHEERIO STUFF~~~~~~~
+axios.get('https://www.nytimes.com/section/todayspaper')
+  .then(({data: html})=>{
+    const $ = cheerio.load(html)
+    console.log('~~~~~~~~~~~~~~~SCRAPE MATERIAL BELOW~~~~~~~~~~~~~~~~~~~~~')
+    console.log($('p.css-1gh531').text()) //p-tag summary text.
+  })
+  .catch(e=>console.error(e))
+
+//~~~~~~~~~CHEERIO STUFF~~~~~~~
+</script>
 </html>
