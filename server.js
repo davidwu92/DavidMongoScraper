@@ -21,7 +21,14 @@ axios.get('https://www.nytimes.com/section/todayspaper#thefrontpage')
     const $ = cheerio.load(html)
     console.log('~~~~~~~~~~~~~~~SCRAPE MATERIAL BELOW~~~~~~~~~~~~~~~')
     //div with link, title, summary
-    console.log($('div.css-141drxa'))
+    $('div.css-10wtrbd').children('h2').children('a')
+      .each((i, elem)=>{
+        console.log($(elem).text())
+      })
+    $('div.css-10wtrbd').children('p.css-1gh531')
+      .each((i, elem)=>{
+        console.log($(elem).text())
+      })
 
 
     //p-tag summary text
