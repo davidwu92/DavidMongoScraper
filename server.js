@@ -20,19 +20,23 @@ axios.get('https://www.nytimes.com/section/todayspaper#thefrontpage')
   .then(({data: html})=>{
     const $ = cheerio.load(html)
     console.log('~~~~~~~~~~~~~~~SCRAPE MATERIAL BELOW~~~~~~~~~~~~~~~')
-    //div with link, title, summary
+    //titles of articles
     $('div.css-10wtrbd').children('h2').children('a')
       .each((i, elem)=>{
         console.log($(elem).text())
       })
+    
+    //summaries of articles
     $('div.css-10wtrbd').children('p.css-1gh531')
       .each((i, elem)=>{
         console.log($(elem).text())
       })
 
-
-    //p-tag summary text
-    // console.log($('p.css-1gh531').text())
+    //URLs of articles
+    $('div.css-10wtrbd').children('h2').children('a')
+      .each((i, elem)=>{
+        console.log("https://www.nytimes.com/" + $(elem).attr('href'))
+      })
   })
   .catch(e=>console.error(e))
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CHEERIO STUFF~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
