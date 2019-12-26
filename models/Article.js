@@ -3,10 +3,10 @@
 
 module.exports = (model, Schema) => {
   const Article = new Schema({
-    headline: String,
+    title: String,
     summary: String,
     url: String,
-    isSaved: Boolean,
+    // isSaved: Boolean,
   //each Article has many comments. 
     comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
     },

@@ -12,7 +12,7 @@ module.exports = app => {
       .catch(e => console.error(e))
   })
 
-  //POST one article
+  //POST one comment
   app.post('/comments', (req, res) =>{
     Comment.create(req.body)
       .then(({_id})=>{
@@ -24,7 +24,7 @@ module.exports = app => {
       .catch(e => console.error(e))
   })
 
-  //DELETE one article
+  //DELETE one comment
   app.delete('/comments/:id', (req, res) =>{
     Comment.deleteOne({_id: req.params.id})
     .then(()=>{
