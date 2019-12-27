@@ -4,18 +4,23 @@ const cheerio = require('cheerio')
 const {Article} = require('../models')
 
 module.exports = app => {
-  //GET all articles
-  app.get('/articles', (req, res) =>{
+  //SCRAPE all articles
+  app.get('/scrape', (req, res) =>{
     //SCRAPE into db IF last time stamp is before TODAY.
     let articleArr = []
     scrape(articleArr)
+    res.json("Okay")
+  })
+
+  //GET all articles
+  app.get('/articles', (req, res) =>{
     Article.find()
       .then(articles => {
         //just serve up articles to front end (I think) -David
+        console.log(res.json(articles))
         res.json(articles)
       })
       .catch(e => console.error(e))
-
   })
 
   //POST one article
@@ -72,7 +77,6 @@ const scrape = (articleArr) => {
       let article = {title: title, summary: summaryArr[i], url: urlArr[i]}
       articleArr.push(article)
     })
-    console.log(articleArr)
     //PUT ARTICLES IN DB
     articleArr.forEach((article, i)=>{
       Article.create(article)
