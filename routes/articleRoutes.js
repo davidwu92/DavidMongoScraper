@@ -79,7 +79,7 @@ const scrape = (articleArr) => {
     })
     //PUT ARTICLES IN DB
     articleArr.forEach((article, i)=>{
-      Article.create(article)
+        Article.create(article)
     })
   })
   .catch(e=>console.error(e))

@@ -15,11 +15,8 @@ const getArticles = () => {
     .then(({data}) => {
       console.log(data)
       //create cards for articles
+
     })
     .catch(e=>console.error(e))
 }
-setTimeout(getArticles(), 1000)
-
-setTimeout(console.log("hi"), 2000)
-
-setTimeout(console.log('Ten Seconds'), 10000)
+setTimeout(() => getArticles(), 1000)
