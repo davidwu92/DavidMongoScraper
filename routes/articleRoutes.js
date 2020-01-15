@@ -16,7 +16,7 @@ module.exports = app => {
   app.get('/articles', (req, res) =>{
     Article.find()
       .then(articles => {
-        //just serve up articles to front end (I think) -David
+        //just serve up articles to front end
         console.log(res.json(articles))
         res.json(articles)
       })
