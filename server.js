@@ -1,4 +1,5 @@
 //server.js ~~~~~Packages installed: axios, cheerio, express, mongoose
+require('dotenv').config()
 require('./config')
 const axios = require('axios')
 const cheerio = require('cheerio')
